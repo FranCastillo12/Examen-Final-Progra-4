@@ -47,6 +47,9 @@ router.post('/New-dataStudies',async(req, res)=>{
     //Se obtiene los datos personales
     
     const{School,High,University,Extra} = req.body;
+    const{Work} = req.body;
+    const{name,email,Age,Country,Number,descrip} = req.body;
+
     const errors = [];
     if(!School){
         errors.push({Text: 'Plese write a title'});
@@ -59,20 +62,19 @@ router.post('/New-dataStudies',async(req, res)=>{
         res.render('/New-data',{ errors });
     //return;   
     }else{
-    
-        const NewData = new InfoStudy({School,High,University,Extra});
-    //await para decirle al sistema que la instruccion va a tomar un tiempo
+        const NewData = new Info({name,email,Age,Country,Number,descrip});
+        const NewDataa = new InfoStudy({School,High,University,Extra});
+        const NewDataaa = new InfoWork({Work});
+        //await para decirle al sistema que la instruccion va a tomar un tiempo
     //Para que siga haciendo las instrucciones que tiene abajo
         //NewData.user = req.user.id
         await NewData.save();
-        //req.flash('mgs_success','Nota agregada');
-        //res.redirect('/notes');
+        await NewDataa.save();
+        await NewDataaa.save();
+        req.flash('mgs_success','Nota agregada');
+        res.redirect('/');
     }
     });
-
-    
-
-
     router.post('/New-dataWork',async(req, res)=>{
         //Se obtiene los datos personales
         
