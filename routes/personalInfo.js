@@ -102,9 +102,9 @@ router.post('/New-dataStudies',async(req, res)=>{
     ///Recuperar la informacion de la base de datos
     router.get('/information',async(req, res)=>{
         const personal = await Info.find();
-        ///const Studie = await InfoStudy.find();
-        ///const Work = await InfoWork.find();
-        res.render('./Profile', {personal});
+        const Studie = await InfoStudy.find();
+        const Work = await InfoWork.find();
+        res.render('./Profile', { personal,Studie,Work });
     });
 
 
