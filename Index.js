@@ -7,7 +7,7 @@ const session =  require('express-session');
 //Inicializacion
 const app = express();
 require('./database');
-
+require('dotenv').config();
 app.set('port',process.env.PORT || 3000) //Setting de app para el puerto
 app.set("views",path.join(__dirname,'views'));
 
@@ -37,7 +37,6 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.listen(app.get('port'),()=> {
     console.log("Servidor en el",app.get('port'))
-    
-    })
+})
 
 
