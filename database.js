@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 //require('dotenv').config({path: 'src/variables.env'});
-const dbUri = process.env.DB_URI;
-mongoose.connect("mongodb+srv://castillof075:s2GzRhduDYzrOwYJ@cluster0.unszciv.mongodb.net/ExamenFinal?retryWrites=true&w=majority",{
+const DB = "mongodb+srv://castillof075:s2GzRhduDYzrOwYJ@cluster0.unszciv.mongodb.net/ExamenFinal?retryWrites=true&w=majority"
+mongoose.connect(DB,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
