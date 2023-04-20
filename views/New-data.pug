@@ -1,0 +1,63 @@
+
+extends ./main.pug
+block content
+
+    if errors 
+        ul
+        each error in errors
+            .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+                | #{error.Text}
+                button.close(type='button', data-dismiss='alert', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                    
+                    
+    
+    .card
+    margin 
+        .card-header.bg-dark.text-center
+            h3.text-white Personal Information
+        .card-body.text-right
+            form(action='/New-dataPersonal', method='POST')
+                .mb-3
+                    input.form-control(type='text', name='name', placeholder='Name', autofocus='')
+                .mb-3
+                    input.form-control(type='text', name='email', placeholder='Email', autofocus='') 
+                .mb-3
+                    input.form-control(type='text', name='Age', placeholder='Age')
+                .mb-3
+                    input.form-control(name='Country', placeholder='Contry')
+                .mb-3
+                    input.form-control(name='Number', placeholder='Telephone Number')
+                .mb-3
+                    input.form-control(name='descrip', placeholder='Descript your self')
+                button.btn.btn-primary.w-100(type='submit')
+                    | Save
+
+
+
+    .card
+    
+        .card-header.bg-dark.text-center
+            h3.text-white Your Studies
+        .card-body.text-right
+            form(action='/New-dataStudies', method='POST')
+                .mb-3
+                    input.form-control(type='text', name='School', placeholder='School', autofocus='')
+                .mb-3
+                    input.form-control(type='text', name='High', placeholder='High School', autofocus='') 
+                .mb-3
+                    input.form-control(type='text', name='University', placeholder='University')
+                .mb-3
+                    textarea.form-control(type='text', name='Extra', placeholder='Extra Information')
+                button.btn.btn-primary.w-100(type='submit')
+                    | Save
+
+    .card
+        .card-header.bg-dark.text-center
+            h3.text-white Work experience
+        .card-body.text-right
+            form(action='/New-dataWork', method='POST')
+                .mb-3
+                    textarea.form-control(type='text', name='Work', placeholder='Work experience', autofocus='')
+                button.btn.btn-primary.w-100(type='submit')
+                    | Save
