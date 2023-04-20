@@ -1,2 +1,37 @@
+
 extends ./main.pug
 block content
+
+    h1(style="text-align: center;margin-top:40px") Personal Information
+    .row(style="margin-top:40px")
+        each note in personal
+            label(for="email" style="margin-right: 25px;font-size: 24px;") Name:#{note.name}
+            br
+            label(for="email" style="margin-right: 25px;font-size: 24px;") Email:#{note.email}
+            br
+            label(for="email" style="margin-right: 25px;font-size: 24px;") Age:#{note.Age}
+            br
+            label(for="email" style="margin-right: 25px;font-size: 24px;") Country:#{note.Country} 
+            label(for="email" style="margin-right: 25px;font-size: 24px;") Telephone Number:#{note.Number}
+    each note in personal
+        .card(style="margin-top: 40px;")
+            .card-body.text-left
+                label(for="email" style="font-size: 24px;margin-top:10px;max-width: 1000px;")  #{note.descrip}
+
+    h1(style="text-align: center;margin-top:40px") Your Studies
+    each perInfo in Studie
+        label(for="email" style="margin-right: 10px;font-size: 24px;margin-top:10px") School:#{perInfo.School}
+        br
+        label(for="email" style="margin-right: 10px;font-size: 24px;margin-top:10px") High School:#{perInfo.High}
+        br
+        label(for="email" style="margin-right: 10px;font-size: 24px;margin-top:10px") University:#{perInfo.University}
+                .card(style="margin-top: 40px;")
+                    .card-body.text-left
+                        label(for="email" style="font-size: 24px;margin-top:10px;max-width: 1000px;")  #{perInfo.Extra}
+                        
+
+    h1(style="text-align: center;margin-top:40px;") Work experience
+    each WorkInfo in Work
+            .card(style="margin-top: 40px;")
+                    .card-body.text-left
+                        label(for="email" style="font-size: 24px;margin-top:10px;max-width: 1000px;")  #{WorkInfo.Work}
