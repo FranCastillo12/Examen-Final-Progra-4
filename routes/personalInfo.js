@@ -1,3 +1,4 @@
+const { text } = require('express');
 const express = require('express');
 const router = express.Router();
 
@@ -106,15 +107,5 @@ router.post('/New-dataStudies',async(req, res)=>{
         const Work = await InfoWork.find();
         res.render('./Profile', { personal,Studie,Work });
     });
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
